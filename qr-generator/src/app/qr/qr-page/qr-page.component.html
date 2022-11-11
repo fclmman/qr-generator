@@ -1,1 +1,16 @@
-<p>qr-page works!</p>
+<div class="qr-container">
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Qr code text</mat-label>
+    <input type="email"
+           matInput
+           [ngModel]="input | async"
+           (ngModelChange)="setInput($event)"
+           placeholder="QR">
+  </mat-form-field>
+  <qrcode #qrContainer
+          [qrdata]="(input | async)!"
+          [width]="(size | async)!"
+          [allowEmptyString]="true"
+          [errorCorrectionLevel]="'M'"></qrcode>
+  <button mat-raised-button color="primary" (click)="download(qrContainer)">Download</button>
+</div>

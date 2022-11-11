@@ -1,1 +1,22 @@
-<router-outlet></router-outlet>
+<mat-drawer-container class="example-container" [hasBackdrop]="true">
+  <mat-drawer #drawer [mode]="'over'">
+    <mat-nav-list>
+      <a mat-list-item [routerLink]="['/']"> Get QR code </a>
+      <a mat-list-item [routerLink]="['/about']"> About </a>
+    </mat-nav-list>
+  </mat-drawer>
+  <mat-drawer-content>
+    <mat-toolbar color="primary">
+      <button mat-icon-button
+              class="example-icon"
+              aria-label="Example icon-button with menu icon"
+              (click)="drawer.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>Qr generator</span>
+    </mat-toolbar>
+    <main>
+      <router-outlet></router-outlet>
+    </main>
+  </mat-drawer-content>
+</mat-drawer-container>
